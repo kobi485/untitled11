@@ -30,7 +30,10 @@ class Player:
 
     # מוסיף כמות כסף לשחקן
     def addAmount(self,amount):
-        self.sum1+=amount
+        if type(amount)==int:
+            self.sum1+=amount
+        else:
+            return ('error,nees number')
 
     #הדפסה של השחקן עם ערכים
     def __repr__(self):
