@@ -8,6 +8,7 @@ class Deckofcards:
     def __init__(self):
         self.deck = self._create()
 
+    # יצירת חבילה למשחק
     def _create(self):
         deck = []
         for i in range(1, 14):
@@ -26,36 +27,26 @@ class Deckofcards:
 
     # ערבוב של החפיסה
     def _shuffle(self):
-        if len(self.deck) == 52:
+        if len(self.deck) <= 52:
             shuffle(self.deck)
         else:
             print('cant shuffle,count the cards!')
 
     # מחזירה את הקלף הראשון בחבילה
     def dealOne(self):
-        if len(self.deck) > 0:
-            return self.deck.pop(0)
+        if 53 > len(self.deck) > 0:
+             return self.deck.pop(0)
+        else:
+            return ('count the cards')
 
-    # מערבבת את החבילה
-    def newGame(self):
-        self.__init__()
-        self.shuffle()
+
+
+    # מערבבת את החבילה ומסמנת את ראש החפיסה
+    def new_Game(self):
+        self._shuffle()
         return self.deck[0]
 
     # מדפיסה את החבילה
     def show(self):
         print(self.deck)
 
-# #
-# d1 = Deckofcards()
-# # print(d1)
-# # # d1.shuffle()
-# # # print(d1)
-# #
-# # d1.dealOne()
-# # print(d1)
-# # #
-# # # d1.newGame()
-# # print(d1)
-# d1.show()
-# # #

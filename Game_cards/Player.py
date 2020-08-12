@@ -8,7 +8,7 @@ class Player:
     # הכנסת משתנים של השחקן
     def __init__(self, name, sum1, numofcards=5):
         self.list1 = []
-        self.name = ''
+        self.name = name
         self.sum1 = sum1
         self.numofcards = numofcards
 
@@ -26,8 +26,13 @@ class Player:
 
     # מוסיף קלף לשחקן
     def addCard(self, card1):
-        self.list1.append(card1)
-
+        if type (card1)==int:
+            if 0<card1<14:
+                self.list1.append(card1)
+            else:
+                return ('need legal card')
+        else:
+            return ('need card')
     # מוריד סכום כסף מהשחקן
     def reduceAmount(self, amount):
         if type(amount) == int:
@@ -54,12 +59,3 @@ class Player:
     def __repr__(self):
         return f'i am {self.name} and i have {self.sum1}money my cards :{self.list1}'
 
-
-# d.shuffle()
-player1=Player('kobi',5000,5)
-# player1.setHand(d)
-# print(player1.list1)
-# # player1.getCard()
-# # player1.addCard(d.deck[0])
-player1.addAmount(-1000)
-print(player1.__repr__())

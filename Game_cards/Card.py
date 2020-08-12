@@ -1,15 +1,31 @@
 class Card:
     # תצוגת קלף במשחק הקלפים
     def __init__(self, value, suit):
-        self.value = value
-        self.suit = suit
+        if type (value)== int:
+            if 0<value<14:
+                self.value = value
+            elif value>13:
+                self.value = 0
+            elif value<1:
+                self.value = 0
+        if type (value)!= int:
+            self.value=1
 
-    # def __eq__(self, other):
-    #     if self.value==other.value and \
-    #             self.suit==other.suit:
-    #         return True
-    #     else:
-    #         return False
+        if type (suit)==int:
+            if 0<suit<4:
+                self.suit=suit
+            elif suit==0:
+                self.suit=suit
+            elif suit<0:
+                self.suit=0
+            elif suit>14:
+                self.suit=0
+
+        else:
+            self.suit==0
+
+
+
 
     # כתיבת הקלף והמרה של משתנים לסוגים של קלפים שונים
     def __repr__(self):
